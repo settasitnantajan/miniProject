@@ -4,7 +4,7 @@ A full-stack product management web application built with React and Firebase. I
 
 ## Live Demo
 
-[liveDemo](https://miniproject-d1493.firebaseapp.com/)
+[[liveDemo](https://miniproject-d1493.firebaseapp.com/)
 
 ---
 
