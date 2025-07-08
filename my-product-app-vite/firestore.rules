@@ -1,0 +1,17 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow authenticated users to read and write to the 'products' collection.
+    match /products/{productId} {
+      // Anyone can read any product document or list of products.
+      allow get, list: if true;
+
+      // A user can only create a product and must set themselves as the owner.
+      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+
+      // Only the owner can update or delete their own product.
+      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
+    }
+  }
+}
